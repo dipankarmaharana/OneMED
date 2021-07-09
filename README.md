@@ -19,10 +19,12 @@ in one go. No more chits and handwritten prescriptions.
 
 1. Java
 2. Android Studio
+3. Firebase Realtime Database
+4. Firebase Firestore 
+5. Firebase Authentication
 
 ## Team Members
 
- 1. [Dipankar Maharana](https://github.com/thedipankar)
- 2. [K Nirmal Kumar](https://github.com/nirmal700)
- 3. [Sreeballabh Sahu](https://github.com/sreeballabh123)
+  [K Nirmal Kumar](https://github.com/nirmal700)
+ 
  

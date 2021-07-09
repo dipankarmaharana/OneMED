@@ -44,6 +44,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
+    public static String email;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     EditText mEmail,mPassword;
@@ -53,12 +54,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     TextView mCreateBtn;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
-    String oEm="",oPs="";
+    String oEm="",oPs="",oNm="";
     public String snip;
     public int sn = 0;
     FloatingActionButton fab;
     Spinner spinner;
     public static final String USER_NAME = "com.example.onemed1.username";
+    public static final String USER_MAIL = "com.example.onemed1.username.mail";
 
 
     @Override
@@ -119,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = mEmail.getText().toString().trim();
+                email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
                 if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Email is Required.");
@@ -167,7 +169,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(MainActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), Homepage_activity.class));
+                                Intent intent = new Intent(MainActivity.this, Homepage_Patient.class);
+                                intent.putExtra(USER_MAIL,email);
+                                startActivity(intent);
                                 progressBar.setVisibility(View.GONE);
                             } else {
                                 Toast.makeText(MainActivity.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -196,10 +200,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Map<String,Object> data = (Map<String, Object>)snapshot.getValue();
                 oEm = snapshot.child("id").getValue(String.class);
                 oPs = snapshot.child("password").getValue(String.class);
+                oNm = snapshot.child("Name").getValue(String.class);
                 if (oEm != null && oPs != null) {
                     if (oEm.equals(em) && oPs.equals(ps)) {
                         Toast.makeText(MainActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this, Homepage_Pharmacy.class);
+                        intent.putExtra(USER_NAME, oNm);
+                        intent.putExtra(USER_MAIL,em);
                         startActivity(intent);
                     }
                     else
@@ -230,10 +237,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Map<String, Object> data = (Map<String, Object>) snapshot.getValue();
                 oEm = snapshot.child("oid").getValue(String.class);
                 oPs = snapshot.child("password").getValue(String.class);
+                oNm = snapshot.child("Name").getValue(String.class);
                 if (oEm != null && oPs != null) {
                     if (oEm.equals(em) && oPs.equals(ps)) {
                         Toast.makeText(MainActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this, Homepage_activity.class);
+                        intent.putExtra(USER_NAME, oNm);
+                        intent.putExtra(USER_MAIL,em);
                         startActivity(intent);
                     }
                     else
