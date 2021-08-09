@@ -12,7 +12,7 @@ App development
 
 ## About Project
 
-OneMED is a mobile app for managing the health records of the patients all over the country. The patients as well as the healthcare providers can have access to all the details
+OneMED is a mobile app for managing the health records of the patients, The patients as well as the healthcare providers can have access to all the details
 in one go. No more chits and handwritten prescriptions. 
 
 ## Tech Stack
@@ -23,8 +23,4 @@ in one go. No more chits and handwritten prescriptions.
 4. Firebase Firestore 
 5. Firebase Authentication
 
-## Team Members
 
-  [K Nirmal Kumar](https://github.com/nirmal700)
- 
- 

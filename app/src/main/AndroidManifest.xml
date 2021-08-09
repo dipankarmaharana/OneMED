@@ -12,17 +12,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OneMED1">
-        <activity android:name=".ViewMyDetailsPatient"></activity>
+        <activity android:name=".CompletedAppointmentRecycler"></activity>
+        <activity android:name=".PendingAppointmentRecycler" />
+        <activity android:name=".ApproveAppointmentRecycler" />
+        <activity android:name=".AppointmentPatient_Recycler" />
+        <activity android:name=".AppointmentBooking" />
+        <activity android:name=".ViewMedicalRecord" />
+        <activity
+            android:name=".MedicalRecords_Recyler"
+            android:parentActivityName=".Homepage_Patient" />
+        <activity
+            android:name=".AddMedicalRecordPatient"
+            android:parentActivityName=".MedicalRecords_Recyler" />
+        <activity
+            android:name=".Prescription_Patient_Recycler"
+            android:parentActivityName=".Homepage_Patient" />
+        <activity android:name=".Prescription_Recycler" />
+        <activity
+            android:name=".ViewMyDetailsPatient"
+            android:parentActivityName=".Homepage_Patient" />
         <activity android:name=".Add_Prescription_Organisation" />
-        <activity
-            android:name=".Update_Delete_Patient"
-            android:parentActivityName=".Homepage_activity" />
-        <activity
-            android:name=".View_Patient_Details"
-            android:parentActivityName=".Homepage_activity" />
-        <activity
-            android:name=".PatientAddinfo"
-            android:parentActivityName=".Homepage_activity" />
+        <activity android:name=".Update_Delete_Patient" />
+        <activity android:name=".View_Patient_Details" />
+        <activity android:name=".PatientAddinfo" />
         <activity android:name=".Register" />
         <activity
             android:name=".Homepage_Patient"
