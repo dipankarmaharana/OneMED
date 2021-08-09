@@ -25,6 +25,7 @@ in one go. No more chits and handwritten prescriptions.
 
 ## Team Members
 
+  [Dipankar Maharana](https://github.com/thedipankar)
   [K Nirmal Kumar](https://github.com/nirmal700)
  
  
